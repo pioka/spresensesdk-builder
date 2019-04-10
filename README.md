@@ -2,10 +2,9 @@
 
 [![CircleCI](https://circleci.com/gh/pioka/spresensesdk-builder.svg?style=shield)](https://circleci.com/gh/pioka/spresensesdk-builder)
 
-Spresense SDK のビルド用コンテナです。
+Spresense SDK アプリのビルド用コンテナです。
 
-:whale: [Docker Hub](https://cloud.docker.com/repository/docker/pioka/spresensesdk-builder) |
-:closed_book: [GitHub](https://github.com/pioka/spresensesdk-builder)
+:whale: [Docker Hub](https://hub.docker.com/r/pioka/spresensesdk-builder)
 
 ## :warning: Caution
 ビルドはできますが、実機へ書き込んでの検証はしていません。なぜなら Spresense を持っていないから。
