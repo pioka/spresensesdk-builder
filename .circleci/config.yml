@@ -5,7 +5,7 @@ jobs:
     environment:
       IMAGE_NAME: pioka/spresensesdk-builder
     docker:
-      - image: buildpack-deps:stable
+      - image: circleci/buildpack-deps
     steps:
       - checkout
       - setup_remote_docker
