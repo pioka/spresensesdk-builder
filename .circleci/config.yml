@@ -11,24 +11,24 @@ jobs:
       - setup_remote_docker
 
       - run:
-        name: Setup environment
-        command: |
-          export DATE=`date '+%Y%m%d'`
-          echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USERNAME --password-stdin
+          name: Setup environment
+          command: |
+            export DATE=`date '+%Y%m%d'`
+            echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USERNAME --password-stdin
 
       - run:
-        name: Build Docker image
-        command: docker build -t $IMAGE_NAME:latest .
+          name: Build Docker image
+          command: docker build -t $IMAGE_NAME:latest .
 
       - run:
-        name: Test building helloworld
-        command: >-
-          git clone --recursive https://github.com/sonydevworld/spresense.git;
-          docker run -v `pwd`/spresense:/opt/spresense -w /opt/spresense/sdk $IMAGE_NAME:latest
-          bash -c './tools/config.py --kernel release && 
-          ./tools/config.py examples/hello && 
-          make buildkernel &&
-          make';
+          name: Test building helloworld
+          command: >-
+            git clone --recursive https://github.com/sonydevworld/spresense.git;
+            docker run -v `pwd`/spresense:/opt/spresense -w /opt/spresense/sdk $IMAGE_NAME:latest
+            bash -c './tools/config.py --kernel release && 
+            ./tools/config.py examples/hello && 
+            make buildkernel &&
+            make';
 
       - run:
           name: Publish Docker image to DockerHub
