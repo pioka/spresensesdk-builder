@@ -25,7 +25,7 @@ jobs:
             make buildkernel &&
             make'
 
-      - run:
+      - deploy:
           name: Publish Docker image to DockerHub
           command: |
             DATE=`date '+%Y%m%d'`
