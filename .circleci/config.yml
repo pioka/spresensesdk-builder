@@ -20,8 +20,8 @@ jobs:
             docker run $IMAGE_NAME:latest
             bash -c 'git clone --recursive https://github.com/sonydevworld/spresense.git &&
             cd spresense/sdk &&
-            ./tools/config.py --kernel release && 
-            ./tools/config.py examples/hello && 
+            ./tools/config.py --kernel release &&
+            ./tools/config.py examples/hello &&
             make buildkernel &&
             make'
 
@@ -32,5 +32,5 @@ jobs:
             docker tag $IMAGE_NAME:latest $IMAGE_NAME:$DATE
 
             echo $DOCKERHUB_PASS | docker login -u $DOCKERHUB_USERNAME --password-stdin
-            docker push $IMAGE_NAME:latest 
             docker push $IMAGE_NAME:$DATE
+            docker push $IMAGE_NAME:latest
