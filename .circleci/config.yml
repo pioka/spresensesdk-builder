@@ -23,12 +23,13 @@ jobs:
       - run:
           name: Test building helloworld
           command: >-
-            git clone --recursive https://github.com/sonydevworld/spresense.git;
-            docker run -v `pwd`/spresense:/opt/spresense -w /opt/spresense/sdk $IMAGE_NAME:latest
-            bash -c './tools/config.py --kernel release && 
+            docker run $IMAGE_NAME:latest
+            bash -c 'git clone --recursive https://github.com/sonydevworld/spresense.git &&
+            cd spresense/sdk &&
+            ./tools/config.py --kernel release && 
             ./tools/config.py examples/hello && 
             make buildkernel &&
-            make';
+            make'
 
       - run:
           name: Publish Docker image to DockerHub
