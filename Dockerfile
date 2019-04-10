@@ -13,6 +13,7 @@ RUN apt-get update \
     autoconf \
     automake \
     cmake \
+    python3 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
@@ -22,5 +23,3 @@ RUN git clone https://bitbucket.org/nuttx/tools.git /opt/tools \
     && make \
     && make install \
     && rm -rf /opt/tools
-
-WORKDIR /opt/sdk
